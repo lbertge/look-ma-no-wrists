@@ -6,7 +6,9 @@ class WebcamVideoStream:
         self.stream = cv2.VideoCapture(src)
         self.stream.set(cv2.CAP_PROP_FRAME_WIDTH, width)
         self.stream.set(cv2.CAP_PROP_FRAME_HEIGHT, height)
-        (self. grabbed, self.frame) = self.stream.read()
+        print(width, height)
+        print(self.stream.get(cv2.CAP_PROP_FRAME_HEIGHT), self.stream.get(cv2.CAP_PROP_FRAME_WIDTH))
+        (self.grabbed, self.frame) = self.stream.read()
 
         self.stopped = False
 
