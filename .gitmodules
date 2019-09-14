@@ -1,3 +1,6 @@
 [submodule "pytorch-ssd"]
 	path = pytorch-ssd
 	url = https://github.com/lbertge/pytorch-ssd.git
+[submodule "imagezmq"]
+	path = imagezmq
+	url = https://github.com/jeffbass/imagezmq.git
