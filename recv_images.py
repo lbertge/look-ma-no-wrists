@@ -1,8 +1,10 @@
 import sys
+sys.path.append("pytorch_ssd/")
 from pytorch_ssd.vision.ssd.mobilenetv1_ssd import create_mobilenetv1_ssd, create_mobilenetv1_ssd_predictor
 import cv2
-sys.path.insert(0, '/imagezmq/imagezmq')
+sys.path.insert(0, 'imagezmq/imagezmq')
 import imagezmq
+import numpy as np
 
 
 top_k = 2
@@ -21,7 +23,7 @@ if __name__ == '__main__':
     image_hub = imagezmq.ImageHub()
     while True:
         image_name, image = image_hub.recv_image()
-        print(image_name, image.shape)
-        image_hub.send_reply(b'OK')
+        out = predict(image)
+        image_hub.send_reply(out)
 
 
