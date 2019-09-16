@@ -11,6 +11,7 @@ class Command:
         self.box = box
 
 command_dict = {}
+state_change = False
 
 def register(cmd):
     command_dict[cmd.name] = cmd
@@ -22,12 +23,13 @@ def ll_command():
 
 def lr_command():
     logging.info("lr")
+
     keyboard.press_and_release("down")
     #os.system("osascript desktop_right.scpt")
 
 def ul_command():
     logging.info("ul")
-    #os.system("osascript show_desktop.scpt")
+    os.system("osascript show_desktop.scpt")
 
 def ur_command():
     logging.info("ur")

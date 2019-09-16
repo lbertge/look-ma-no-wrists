@@ -18,9 +18,8 @@ class ImageSender:
         reply =  self.sender.send_image(self.name, image)
         if reply != b'':
             out = np.fromstring(reply, np.float32)
-            out.reshape((4, -1))
-            out = np.atleast_2d(out)
-            print(out.shape)
+            out = out.reshape((-1, 4))
+            out = np.atleast_2d(out).tolist()
         else:
             out = None
         return out 

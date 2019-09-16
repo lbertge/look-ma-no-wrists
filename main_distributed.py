@@ -73,6 +73,7 @@ if __name__ == '__main__':
                 if (out is not None):
                     loc = out
                     for box in loc:
+                        box = list(map(int, box))
                         cv2.rectangle(frame, (box[0], box[1]), (box[2], box[3]), (255, 255, 0), 4)
                     manager.recv_boxes(loc)
                 draw_bounds(frame)
